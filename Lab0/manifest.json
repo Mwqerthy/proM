@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "WebSocket Question Handler",
+    "version": "1.0",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "ws://localhost:*/*",
+        "https://labs.perplexity.ai/*"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://labs.perplexity.ai/"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}

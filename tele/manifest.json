@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Question Assistant",
+    "version": "1.0",
+    "description": "Assists with answering questions using WebSocket",
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "permissions": [
+        "activeTab",
+        "webSocket",
+        "nativeMessaging"
+    ],
+    "host_permissions": [
+        "ws://localhost:3000/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://100seconds.et/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}
